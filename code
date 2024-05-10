@@ -1,0 +1,48 @@
+def get_grades():
+    empty_list = []
+    ask_for_grades = True
+    while ask_for_grades:
+        grade = int(input("next grade?"))
+
+        if grade == -1:
+            ask_for_grades = False
+        else:
+            if grade >= 0 and grade <= 10:
+                empty_list.append(grade)
+                ask_for_grades = True
+            else:
+                print("provide a number between 0-10")
+    return empty_list
+
+def minimum(num_list):
+    min=num_list[0]
+    for number in num_list:
+        if(number<= min):
+            min=number
+    return min
+
+#[2,3,4,5]
+def maximum(num_list):
+    max=num_list[0]
+    for number in num_list:
+        if(number>= max):
+            max=number
+    return max
+    
+def avg(result):
+    sum=0
+    for number in result:
+        sum= sum + number
+    avg= sum/ len(result)
+    return avg
+grade_list = get_grades()
+if len(grade_list) == 0:
+    print("you have not given any grades")
+    exit()
+else:
+    print(grade_list)
+    print("you have given " + str(len(grade_list)) + "grades")
+mini= minimum(grade_list)
+maxi= maximum(grade_list)
+average= avg(grade_list)
+print ("minimum :"+ str(mini) +"maximum :" + str(maxi)+" average :" + str(average))
